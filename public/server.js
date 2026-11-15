@@ -8,8 +8,8 @@ app.use(cors());
 app.use(express.json());
 
 // ========= 配置区 =========
-const ADMIN_PASS = "123456"; // 和上面网页管理员密码保持一致
-const TARGET_FOLDER = "F:/作品管理"; // 这里改成你F盘的文件夹路径！！
+const ADMIN_PASS = "#123456"; // 和上面网页管理员密码保持一致
+const TARGET_FOLDER = "F:/管理员"; // 这里改成你F盘的文件夹路径！！
 const PORT = 8877;
 // ==========================
 
