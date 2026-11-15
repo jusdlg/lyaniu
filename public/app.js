@@ -1330,3 +1330,39 @@ checkSession().catch(function (error) {
   showLogin();
   els.loginStatus.textContent = error instanceof Error ? error.message : '无法连接到服务';
 });
+// ========== 管理员后台逻辑 ==========
+const ADMIN_PASSWORD = "#123456"; // 改成你自己的管理员密码！
+const ADMIN_URL = "http://127.0.0.1:8877"; // 本地文件服务地址
+
+const adminBtn = document.getElementById("adminBtn");
+const adminModal = document.getElementById("adminModal");
+const closeAdminModalBtn = document.getElementById("closeAdminModalBtn");
+const cancelAdminBtn = document.getElementById("cancelAdminBtn");
+const confirmAdminBtn = document.getElementById("confirmAdminBtn");
+const adminPwdInput = document.getElementById("adminPwdInput");
+
+adminBtn.addEventListener("click", () => {
+  adminModal.classList.remove("hidden");
+  adminPwdInput.value = "";
+  adminPwdInput.focus();
+});
+
+function closeAdminModal(){
+  adminModal.classList.add("hidden");
+}
+closeAdminModalBtn.addEventListener("click", closeAdminModal);
+cancelAdminBtn.addEventListener("click", closeAdminModal);
+
+confirmAdminBtn.addEventListener("click", ()=>{
+  const pwd = adminPwdInput.value.trim();
+  if(pwd === ADMIN_PASSWORD){
+    window.open(ADMIN_URL, "_blank");
+    closeAdminModal();
+  }else{
+    alert("管理员密码错误！");
+  }
+})
+adminPwdInput.addEventListener("keydown", (e)=>{
+  if(e.key === "Enter") confirmAdminBtn.click();
+})
+
