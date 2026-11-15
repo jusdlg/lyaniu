@@ -55,6 +55,8 @@
             </div>
             <button id="searchBtn" class="btn secondary">搜索</button>
             <button id="newBtn" class="btn topbar-new-btn">新建笔记</button>
+            <!-- ========== 新增管理员按钮 ========== -->
+            <button id="adminBtn" class="btn secondary">管理员后台</button>
             <button id="logoutBtn" class="btn secondary">退出登录</button>
           </div>
         </header>
@@ -86,6 +88,24 @@
           </section>
         </main>
       </section>
+    </div>
+
+    <!-- ========== 新增管理员密码弹窗 ========== -->
+    <div id="adminModal" class="modal-backdrop hidden">
+      <div class="card modal-card" style="max-width:420px;">
+        <div class="modal-head">
+          <h2 class="section-title">管理员验证</h2>
+          <button id="closeAdminModalBtn" class="btn secondary">关闭</button>
+        </div>
+        <div class="field-stack">
+          <label class="field-label">管理员密码</label>
+          <input id="adminPwdInput" class="input" type="password" placeholder="输入管理员密码" />
+        </div>
+        <div class="modal-actions">
+          <button id="cancelAdminBtn" class="btn secondary">取消</button>
+          <button id="confirmAdminBtn" class="btn">验证进入后台</button>
+        </div>
+      </div>
     </div>
 
     <div id="editorModal" class="modal-backdrop hidden">
