@@ -1332,7 +1332,7 @@ checkSession().catch(function (error) {
 });
 // ========== 管理员后台逻辑 ==========
 const ADMIN_PASSWORD = "#123456"; // 改成你自己的管理员密码！
-const ADMIN_URL = "http://127.0.0.1:8877"; // 本地文件服务地址
+const ADMIN_URL = "https://file.shang169.dpdns.org/"; // 本地文件服务地址
 
 /**
  * @param {string} id
