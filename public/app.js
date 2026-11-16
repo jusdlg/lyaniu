@@ -1334,12 +1334,31 @@ checkSession().catch(function (error) {
 const ADMIN_PASSWORD = "#123456"; // 改成你自己的管理员密码！
 const ADMIN_URL = "http://127.0.0.1:8877"; // 本地文件服务地址
 
-const adminBtn = document.getElementById("adminBtn");
-const adminModal = document.getElementById("adminModal");
-const closeAdminModalBtn = document.getElementById("closeAdminModalBtn");
-const cancelAdminBtn = document.getElementById("cancelAdminBtn");
-const confirmAdminBtn = document.getElementById("confirmAdminBtn");
-const adminPwdInput = document.getElementById("adminPwdInput");
+/**
+ * @param {string} id
+ * @returns {HTMLElement}
+ */
+function getAdminEl(id) {
+  const el = document.getElementById(id);
+  if (!el) throw new Error(`缺少管理员元素：${id}`);
+  return el;
+}
+/**
+ * @param {string} id
+ * @returns {HTMLInputElement}
+ */
+function getAdminInput(id) {
+  const el = getAdminEl(id);
+  if (!(el instanceof HTMLInputElement)) throw new Error(`管理员元素类型错误：${id}`);
+  return el;
+}
+
+const adminBtn = getAdminEl("adminBtn");
+const adminModal = getAdminEl("adminModal");
+const closeAdminModalBtn = getAdminEl("closeAdminModalBtn");
+const cancelAdminBtn = getAdminEl("cancelAdminBtn");
+const confirmAdminBtn = getAdminEl("confirmAdminBtn");
+const adminPwdInput = getAdminInput("adminPwdInput");
 
 adminBtn.addEventListener("click", () => {
   adminModal.classList.remove("hidden");
@@ -1365,4 +1384,3 @@ confirmAdminBtn.addEventListener("click", ()=>{
 adminPwdInput.addEventListener("keydown", (e)=>{
   if(e.key === "Enter") confirmAdminBtn.click();
 })
-
